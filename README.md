@@ -8,20 +8,20 @@
 
 ```javascript
 import {
-    $_is,
-    $_slice,
-    $_shift,
-    $_pop,
-    $_forEach,
-    $_length
+  $_is,
+  $_slice,
+  $_shift,
+  $_pop,
+  $_forEach,
+  $_length
 } from 'static/shared';
 
 export default function Constructor() {
-    // ...
+  // ...
 }
 
 Constructor.prototype = {
-    // ...
+  // ...
 };
 ```
 
@@ -48,7 +48,7 @@ In your project's Gruntfile, add a section named `'import-clean'` to the data ob
 ```javascript
 grunt.initConfig({
   'import-clean': {
-    target: [ /* target-specific file paths or patters go here. */ ],
+  target: [ /* target-specific file paths or patters go here. */ ],
   },
 });
 ```
@@ -68,8 +68,8 @@ In this example, `'import-clean:all'` validates imports in all source files, whi
 ```javascript
 grunt.initConfig({
   'import-clean': {
-    all: 'src/*.js',
-    some: [ 'src/controller.js' , 'src/service.js' ]
+  all: 'src/*.js',
+  some: [ 'src/controller.js' , 'src/service.js' ]
   },
 });
 ```
@@ -88,11 +88,11 @@ Validating imports in 5 files... ✓ OK
 Validating imports in 5 files...
 
 "controller.js": [
-    "$_is",
-    "$_forEach"
+  "$_is",
+  "$_forEach"
 ],
 "service.js": [
-    "$_isArray"
+  "$_isArray"
 ]
 
 Warning: found 3 unused imports in 2 files. Use --force to continue.

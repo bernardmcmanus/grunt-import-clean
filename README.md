@@ -1,6 +1,6 @@
 # grunt-import-clean
 
-> The best Grunt plugin ever.
+> Identify unused imports in es6 modules.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -14,17 +14,17 @@ npm install grunt-import-clean --save-dev
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-import-clean');
+grunt.loadNpmTasks( 'grunt-import-clean' );
 ```
 
-## The "import_clean" task
+## The "import-clean" task
 
 ### Overview
-In your project's Gruntfile, add a section named `import_clean` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `'import-clean'` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  import_clean: {
+  'import-clean': {
     options: {
       // Task-specific options go here.
     },
@@ -56,7 +56,7 @@ In this example, the default options are used to do something with whatever. So 
 
 ```js
 grunt.initConfig({
-  import_clean: {
+  'import-clean': {
     options: {},
     files: {
       'dest/default_options': ['src/testing', 'src/123'],
@@ -70,7 +70,7 @@ In this example, custom options are used to do something else with whatever else
 
 ```js
 grunt.initConfig({
-  import_clean: {
+  'import-clean': {
     options: {
       separator: ': ',
       punctuation: ' !!!',

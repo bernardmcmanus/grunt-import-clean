@@ -1,0 +1,17 @@
+{
+  "unused": {
+    "array-0.js": [
+      "$Error",
+      "$_delete",
+      "$_is",
+      "$_indexOf",
+      "$_forEach"
+    ],
+    "array-1.js": [
+      "$_isArray"
+    ]
+  },
+  "totalFiles": 2,
+  "foundFiles": 2,
+  "foundImports": 6
+}

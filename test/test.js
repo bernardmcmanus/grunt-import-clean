@@ -4,7 +4,6 @@
 
 
   var grunt = require( 'grunt' );
-  var fs = require( 'fs-extra' );
 
 
   exports['import-clean'] = {

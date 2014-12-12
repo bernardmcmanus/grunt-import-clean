@@ -1,6 +1,29 @@
 # grunt-import-clean
 
-> Identify unused imports in es6 modules.
+> Identify unused imports in ES6 modules.
+
+## Overview
+
+`grunt-import-clean` is a simple plugin that identifies imports that are never referenced in modules utilizing the new ES6 syntax:
+
+```javascript
+import {
+    $_is,
+    $_slice,
+    $_shift,
+    $_pop,
+    $_forEach,
+    $_length
+} from 'static/shared';
+
+export default function Constructor() {
+    // ...
+}
+
+Constructor.prototype = {
+    // ...
+};
+```
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -13,77 +36,64 @@ npm install grunt-import-clean --save-dev
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
-```js
+```javascript
 grunt.loadNpmTasks( 'grunt-import-clean' );
 ```
 
-## The "import-clean" task
+## The import-clean task
 
 ### Overview
 In your project's Gruntfile, add a section named `'import-clean'` to the data object passed into `grunt.initConfig()`.
 
-```js
+```javascript
 grunt.initConfig({
   'import-clean': {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
+    target: [ /* target-specific file paths or patters go here. */ ],
   },
 });
 ```
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
-
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
+| Property | Type | Default | Description |
+| -------- | ---- | ------- | ----------- |
+| `test` | `Boolean` | `false` | A boolean value indicating whether unit tests should be run. |
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example, `'import-clean:all'` validates imports in all source files, while `'import-clean:some'` validates only specific files.
 
-```js
+#### Configuration
+
+```javascript
 grunt.initConfig({
   'import-clean': {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+    all: 'src/*.js',
+    some: [ 'src/controller.js' , 'src/service.js' ]
   },
 });
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+#### Output
 
-```js
-grunt.initConfig({
-  'import-clean': {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
+```shell
+# success
+
+Validating imports in 5 files... ✓ OK
 ```
 
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+```shell
+# error
 
-## Release History
-_(Nothing yet)_
+Validating imports in 5 files...
+
+"controller.js": [
+    "$_is",
+    "$_forEach"
+],
+"service.js": [
+    "$_isArray"
+]
+
+Warning: found 3 unused imports in 2 files. Use --force to continue.
+```

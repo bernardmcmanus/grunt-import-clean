@@ -11,7 +11,7 @@ module.exports = (function() {
     var RE_EXTRACT = /^(import(.|\n)*from.*('|"|;))$/gmi;
     var RE_START = /^import/i;
     var RE_END = /from.*('|"|;)$/i;
-    var RE_CLEAN = /'|"|\s|\t/gi;
+    var RE_CLEAN = /\s\*\sas\s|'|"|\s|\t/gi;
     var RE_PARSE1 = /import(.*)from/i;
     var RE_PARSE2 = /\{(.*)\}/i;
 

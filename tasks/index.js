@@ -45,7 +45,8 @@ module.exports = function( grunt ) {
     .map(function( file ) {
       file = imports( file );
       file.unused = file.imports.filter(function( name ) {
-        var re = shared.escRegExp( name );
+        name = shared.escRegExp( name );
+        var re = new RegExp( '(^|\\W)' + name + '(\\W?|$)' );
         return !re.test( file.input );
       });
       return file;

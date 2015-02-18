@@ -1,6 +1,7 @@
 import E$ from 'main';
 import { isPrivate , getPublic } from 'event';
 import when from 'when';
+import * as something from 'somewhere';
 import isE$ from 'static/is-emoney';
 import construct from 'static/construct';
 import {

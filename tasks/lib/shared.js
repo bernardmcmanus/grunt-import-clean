@@ -12,9 +12,8 @@ module.exports = (function() {
       return (Array.isArray( subject ) ? subject : ( subject !== UNDEFINED ? [ subject ] : [] ));
     },
 
-    escRegExp: function( str , mods ) {
-      str = str.replace( /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g , '\\$&' );
-      return new RegExp( str , mods );
+    escRegExp: function( str ) {
+      return str.replace( /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g , '\\$&' );
     }
 
   };

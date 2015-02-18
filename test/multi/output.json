@@ -1,6 +1,8 @@
 {
   "unused": {
     "multi-0.js": [
+      "E$",
+      "something",
       "$Error",
       "$_delete",
       "$_is",
@@ -13,5 +15,5 @@
   },
   "totalFiles": 2,
   "foundFiles": 2,
-  "foundImports": 6
+  "foundImports": 8
 }

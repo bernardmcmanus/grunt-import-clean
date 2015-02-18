@@ -50,6 +50,17 @@
       test.equal( actual , expected , 'should describe array behavior.' );
 
       test.done();
+    },
+
+    wildcard: function( test ) {
+
+      test.expect( 1 );
+
+      var actual = grunt.file.read( 'tmp/wildcard.json' );
+      var expected = grunt.file.read( 'test/wildcard/output.json' );
+      test.equal( actual , expected , 'should describe wildcard behavior.' );
+
+      test.done();
     }
 
   };

@@ -1,6 +1,6 @@
 {
   "unused": {
-    "array-0.js": [
+    "wildcard.js": [
       "E$",
       "something",
       "$Error",
@@ -8,12 +8,9 @@
       "$_is",
       "$_indexOf",
       "$_forEach"
-    ],
-    "array-1.js": [
-      "$_isArray"
     ]
   },
-  "totalFiles": 2,
-  "foundFiles": 2,
-  "foundImports": 8
+  "totalFiles": 1,
+  "foundFiles": 1,
+  "foundImports": 7
 }

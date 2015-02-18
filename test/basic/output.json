@@ -1,6 +1,8 @@
 {
   "unused": {
     "basic.js": [
+      "E$",
+      "something",
       "$Error",
       "$_delete",
       "$_is",
@@ -10,5 +12,5 @@
   },
   "totalFiles": 1,
   "foundFiles": 1,
-  "foundImports": 5
+  "foundImports": 7
 }

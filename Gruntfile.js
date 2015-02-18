@@ -29,6 +29,7 @@ module.exports = function( grunt ) {
       multi: 'test/multi/*.js',
       empty: 'test/empty/*.js',
       array: [ 'test/array/*-0.js' , 'test/array/*-1.js' ],
+      wildcard: 'test/wildcard/*.js',
       options: { test: true }
     },
 
@@ -52,15 +53,15 @@ module.exports = function( grunt ) {
 
   grunt.registerTask( 'default' , [
     'jshint',
-    'test'
+    'test',
+    'clean'
   ]);
 
   
   grunt.registerTask( 'test' , [
     'clean',
     'import-clean',
-    'nodeunit',
-    'clean'
+    'nodeunit'
   ]);
 
 };

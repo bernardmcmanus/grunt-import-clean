@@ -22,8 +22,7 @@ module.exports = function( grunt ) {
     var options = that.options();
     var data = shared.ensureArray( that.data );
     var testAdaptor = options.test ? new TestAdaptor( __dirname ) : testAdaptor;
-
-    grunt.option( 'force' , options.force !== undefined ? options.force : true );
+    var force = options.force !== undefined ? options.force : true;
 
     var files = data.reduce(function( prev , current ) {
       return prev.concat(
@@ -55,18 +54,29 @@ module.exports = function( grunt ) {
     });
 
     var result = aggregate( files );
+    var msg;
 
     if (options.test) {
       testAdaptor.write( that.target , result );
-      util.puts( ('\ntest output written to tmp/' + that.target + '.json').yellow );
+      msg = '\ntest output written to tmp/' + that.target + '.json';
+      util.puts( msg.yellow );
     }
     else if (result.foundFiles) {
+
       print( result.unused );
-      grunt.fail.warn(
-        'found ' + result.foundImports +
+
+      msg = 'found ' + result.foundImports +
         ' unused imports in ' + result.foundFiles +
-        ' file' + (result.foundFiles > 1 ? 's' : '') + '.'
-      );
+        ' file' + (result.foundFiles > 1 ? 's' : '') + '.';
+
+      // grunt.option( 'force' , true ) will force all subsequent tasks.
+      // this handles the force option politely.
+      if (force) {
+        util.puts(( 'Warning: ' + msg ).yellow );
+      }
+      else {
+        grunt.fail.warn( msg );
+      }
     }
     else {
       util.puts( '\u2713 OK'.green );

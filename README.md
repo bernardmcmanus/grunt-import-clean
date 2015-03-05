@@ -57,6 +57,7 @@ grunt.initConfig({
 
 | Property | Type | Default | Description |
 | -------- | ---- | ------- | ----------- |
+| `force` | `Boolean` | `true` | A boolean value indicating whether grunt should continue if unused imports are detected. |
 | `test` | `Boolean` | `false` | A boolean value indicating whether unit tests should be run. |
 
 ### Usage Examples

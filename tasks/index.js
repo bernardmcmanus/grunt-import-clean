@@ -23,6 +23,8 @@ module.exports = function( grunt ) {
     var data = shared.ensureArray( that.data );
     var testAdaptor = options.test ? new TestAdaptor( __dirname ) : testAdaptor;
 
+    grunt.option( 'force' , options.force !== undefined ? options.force : true );
+
     var files = data.reduce(function( prev , current ) {
       return prev.concat(
         grunt.file.expand( current )

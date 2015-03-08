@@ -19,10 +19,9 @@ module.exports = function( grunt ) {
   grunt.registerMultiTask( 'import-clean' , pkg.description , function() {
 
     var that = this;
-    var options = that.options();
+    var options = that.options({ test: false, force: false });
     var data = shared.ensureArray( that.data );
     var testAdaptor = options.test ? new TestAdaptor( __dirname ) : testAdaptor;
-    var force = options.force !== undefined ? options.force : true;
 
     var files = data.reduce(function( prev , current ) {
       return prev.concat(
@@ -71,7 +70,7 @@ module.exports = function( grunt ) {
 
       // grunt.option( 'force' , true ) will force all subsequent tasks.
       // this handles the force option politely.
-      if (force) {
+      if (options.force) {
         util.puts(( 'Warning: ' + msg ).yellow );
       }
       else {

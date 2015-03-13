@@ -42,21 +42,20 @@ module.exports = (function() {
 
       });
 
-      imports = imports.reduce(function( prev , current ) {
-
-        var str = current.join( '' ).replace( RE_CLEAN , '' );
-        var match = RE_PARSE1.exec( str );
-        
-        match = match ? match[1] : null;
-
-        if (RE_PARSE2.test( match )) {
-          match = RE_PARSE2.exec( match );
-          match = match ? match[1].split( ',' ) : null;
-        }
-
-        return prev.concat( match );
-
-      }, []);
+      imports = imports
+        .filter(function( $import ) {
+          return !!$import;
+        })
+        .reduce(function( prev , current ) {
+          var str = current.join( '' ).replace( RE_CLEAN , '' );
+          var match = RE_PARSE1.exec( str );
+          match = match ? match[1] : null;
+          if (RE_PARSE2.test( match )) {
+            match = RE_PARSE2.exec( match );
+            match = match ? match[1].split( ',' ) : null;
+          }
+          return prev.concat( match );
+        },[]);
     }
 
     file.input = input;

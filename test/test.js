@@ -61,6 +61,17 @@
       test.equal( actual , expected , 'should describe wildcard behavior.' );
 
       test.done();
+    },
+
+    default_as: function( test ) {
+
+      test.expect( 1 );
+
+      var actual = grunt.file.read( 'tmp/default_as.json' );
+      var expected = grunt.file.read( 'test/default_as/output.json' );
+      test.equal( actual , expected , 'should describe default_as behavior.' );
+
+      test.done();
     }
 
   };

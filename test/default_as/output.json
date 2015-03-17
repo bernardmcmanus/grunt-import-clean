@@ -1,0 +1,18 @@
+{
+  "unused": {
+    "default_as.js": [
+      "E$",
+      "something",
+      "$Class",
+      "getPrototype",
+      "$Error",
+      "$_delete",
+      "$_is",
+      "$_indexOf",
+      "$_forEach"
+    ]
+  },
+  "totalFiles": 1,
+  "foundFiles": 1,
+  "foundImports": 9
+}

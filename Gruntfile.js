@@ -31,6 +31,7 @@ module.exports = function( grunt ) {
       empty: 'test/empty/*.js',
       array: [ 'test/array/*-0.js' , 'test/array/*-1.js' ],
       wildcard: 'test/wildcard/*.js',
+      default_as: 'test/default_as/*.js',
       options: { test: true }
     },
 

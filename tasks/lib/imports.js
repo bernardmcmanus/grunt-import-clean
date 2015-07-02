@@ -8,7 +8,7 @@ module.exports = (function() {
 
   return function( file ) {
 
-    var RE_EXTRACT = /^(import(.|\n)*from.*('|"|;))$/gmi;
+    var RE_EXTRACT = /^(import(?:[^;]|\n)*from.*(?:'|"|;))$/gmi;
     var RE_START = /^import/i;
     var RE_END = /from.*('|"|;)$/i;
     var RE_CLEAN = /\s(\*|default)\sas\s|'|"|\s|\t/gi;
@@ -16,13 +16,12 @@ module.exports = (function() {
     var RE_PARSE2 = /\{(.*)\}/i;
 
     var input = file.input;
-    var text = RE_EXTRACT.exec( input );
+    var text = input.match( RE_EXTRACT );
     var imports = [];
     var block = null;
 
     if (text) {
 
-      text = text[0].split( '\n' );
       input = input.replace( RE_EXTRACT , '' );
 
       text.forEach(function( line ) {

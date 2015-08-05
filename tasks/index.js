@@ -1,9 +1,7 @@
 module.exports = function( grunt ) {
 
   'use strict';
-  
 
-  var util = require( 'util' );
   var fs = require( 'fs-extra' );
   var colors = require( 'colors' );
   var lib = require( './lib' );
@@ -27,9 +25,9 @@ module.exports = function( grunt ) {
       return prev.concat(
         grunt.file.expand( current )
       );
-    }, []);
+    },[]);
 
-    util.print(
+    process.stdout.write(
       'Validating imports in ' +
       files.length + ' files... '
     );
@@ -58,7 +56,7 @@ module.exports = function( grunt ) {
     if (options.test) {
       testAdaptor.write( that.target , result );
       msg = '\ntest output written to tmp/' + that.target + '.json';
-      util.puts( msg.yellow );
+      console.log( msg.yellow );
     }
     else if (result.foundFiles) {
 
@@ -71,35 +69,15 @@ module.exports = function( grunt ) {
       // grunt.option( 'force' , true ) will force all subsequent tasks.
       // this handles the force option politely.
       if (options.force) {
-        util.puts(( 'Warning: ' + msg ).yellow );
+        console.log(( 'Warning: ' + msg ).yellow );
       }
       else {
         grunt.fail.warn( msg );
       }
     }
     else {
-      util.puts( '\u2713 OK'.green );
+      console.log( '\u2713 OK'.green );
     }
     
   });
-
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

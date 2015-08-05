@@ -2,12 +2,7 @@ module.exports = (function() {
 
   'use strict';
 
-
-  // remove any commented code from input
-
-
   return function( input ) {
-
     var RE_COMMENT1 = /\/\/.*/gi;
     var RE_COMMENT2 = /\/\*.*\*\//gi;
     var RE_COMMENT_OPEN = /\/\*/;
@@ -34,25 +29,4 @@ module.exports = (function() {
     })
     .join( '\n' );
   };
-
-
 }());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

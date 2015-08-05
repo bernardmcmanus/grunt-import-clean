@@ -1,16 +1,10 @@
 module.exports = (function() {
 
   'use strict';
-  
-
-  // aggregate results
-
 
   var path = require( 'path' );
 
-  
   return function( files ) {
-
     var result = {
       unused: {},
       totalFiles: files.length,
@@ -28,8 +22,5 @@ module.exports = (function() {
     });
 
     return result;
-
   };
-
-
 }());

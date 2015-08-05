@@ -10,7 +10,6 @@ module.exports = function( grunt ) {
 
   'use strict';
 
-
   grunt.initConfig({
     
     jshint: {
@@ -38,12 +37,9 @@ module.exports = function( grunt ) {
     nodeunit: {
       tests: [ 'test/*(_?)test.js' ]
     }
-
   });
-
   
   grunt.loadTasks( 'tasks' );
-
   
   [
     'grunt-contrib-jshint',
@@ -52,38 +48,15 @@ module.exports = function( grunt ) {
   ]
   .forEach( grunt.loadNpmTasks );
 
-
   grunt.registerTask( 'default' , [
     'jshint',
     'test',
     'clean'
   ]);
 
-  
   grunt.registerTask( 'test' , [
     'clean',
     'import-clean',
     'nodeunit'
   ]);
-
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

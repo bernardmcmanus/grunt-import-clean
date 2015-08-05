@@ -1,8 +1,5 @@
 module.exports = (function() {
-
   'use strict';
-  
-
   return {
     shared: require( './shared' ),
     comment: require( './comment' ),
@@ -11,5 +8,4 @@ module.exports = (function() {
     print: require( './print' ),
     TestAdaptor: require( './testAdaptor' )
   };
-
 }());

@@ -2,12 +2,7 @@ module.exports = (function() {
 
   'use strict';
 
-
-  // extract imports for each file and return as an array
-
-
   return function( file ) {
-
     var RE_EXTRACT = /^(import(?:[^;]|\n)*from.*(?:'|"|;))$/gmi;
     var RE_START = /^import/i;
     var RE_END = /from.*('|"|;)$/i;
@@ -21,24 +16,18 @@ module.exports = (function() {
     var block = null;
 
     if (text) {
-
       input = input.replace( RE_EXTRACT , '' );
-
       text.forEach(function( line ) {
-
         if (RE_START.test( line )) {
           block = [];
         }
-
         if (Array.isArray( block )) {
           block.push( line );
         }
-        
         if (RE_END.test( line )) {
           imports.push( block );
           block = null;
         }
-
       });
 
       imports = imports
@@ -59,29 +48,6 @@ module.exports = (function() {
 
     file.input = input;
     file.imports = imports;
-
     return file;
-
   };
-
-
 }());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -55,9 +55,10 @@ grunt.initConfig({
 
 ### Options
 
-| Property | Type | Default | Description |
-| -------- | ---- | ------- | ----------- |
+| Property | Type                  | Default | Description |
+| -------- | --------------------- | ------- | ----------- |
 | `force` | `Boolean` | `false` | A boolean value indicating whether grunt should continue if unused imports are detected. |
+| `ignore` | `String` or `Array of String` | `[]` | The name(s) of unused imports to ignore. If ignored unused imports are detected, they will still be reported on with a warning. If *only* ignored unused imports are detected, grunt will continue. |
 | `test` | `Boolean` | `false` | A boolean value indicating whether unit tests should be run. |
 
 ### Usage Examples
@@ -97,4 +98,49 @@ Validating imports in 5 files...
 ]
 
 Warning: found 3 unused imports in 2 files. Use --force to continue.
+```
+
+
+#### Configuration with `ignore` option
+
+```javascript
+grunt.initConfig({
+  'import-clean': {
+    all: 'src/*.js',
+    some: [ 'src/Component.jsx' , 'src/service.js' ],
+    options: {
+      ignore: ['React']  // OR simply ignore: 'React', OR to ignore multiple imports ['React', 'SomethingElse']
+    }
+  },
+});
+```
+
+#### Output with `ignore` option
+
+```shell
+# success (only ignored unused imports found, grunt continues)
+
+Validating imports in 5 files...
+
+"Component.jsx": [
+  "React   (IGNORED)"
+]
+
+Warning: found 1 unused imports in 1 files (1 IGNORED). Use --force to continue.
+```
+
+```shell
+# error (ignored and non-ignored unused imports found, grunt stops)
+
+Validating imports in 5 files...
+
+"Component.jsx": [
+  "React   (IGNORED)",
+  "$_forEach"
+],
+"service.js": [
+  "$_isArray"
+]
+
+Warning: found 3 unused imports in 2 files (1 IGNORED). Use --force to continue.
 ```

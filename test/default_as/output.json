@@ -2,11 +2,11 @@
   "unused": {
     "default_as.js": [
       "E$",
-      "something",
+      "something   (IGNORED)",
       "$Class",
       "getPrototype",
-      "$Error",
-      "$_delete",
+      "$Error   (IGNORED)",
+      "$_delete   (IGNORED)",
       "$_is",
       "$_indexOf",
       "$_forEach"
@@ -14,5 +14,6 @@
   },
   "totalFiles": 1,
   "foundFiles": 1,
-  "foundImports": 9
+  "foundImports": 6,
+  "ignoredImports": 3
 }

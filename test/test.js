@@ -34,8 +34,8 @@
 
       test.expect( 1 );
 
-      var actual = grunt.file.read( 'tmp/multi.json' );
-      var expected = grunt.file.read( 'test/multi/output.json' );
+      var actual = grunt.file.read( 'tmp/empty.json' );
+      var expected = grunt.file.read( 'test/empty/output.json' );
       test.equal( actual , expected , 'should describe empty behavior.' );
 
       test.done();
@@ -77,22 +77,3 @@
   };
 
 }());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

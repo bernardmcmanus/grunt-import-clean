@@ -50,7 +50,7 @@ module.exports = function( grunt ) {
       return file;
     });
 
-    var importsToIgnore = options.ignore ? ( options.ignore.constructor === Array ? options.ignore : [ options.ignore ] ) : [];
+    var importsToIgnore = shared.ensureArray( options.ignore );
     var result = aggregate( files, importsToIgnore );
     var msg;
 

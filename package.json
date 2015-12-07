@@ -1,7 +1,7 @@
 {
   "name": "grunt-import-clean",
   "description": "identify unused imports in es6 modules",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "homepage": "https://github.com/elnarddogg/grunt-import-clean",
   "author": {
     "name": "Bernard McManus",
@@ -15,18 +15,9 @@
   "bugs": {
     "url": "https://github.com/elnarddogg/grunt-import-clean/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/elnarddogg/grunt-import-clean/blob/master/LICENSE.txt"
-    }
-  ],
+  "license": "MIT",
   "engines": {
     "node": ">= 0.8.0"
-  },
-  "scripts": {
-    "start": "clear; grunt",
-    "test": "grunt test"
   },
   "dependencies": {
     "fs-extra": ">=0.9.1",

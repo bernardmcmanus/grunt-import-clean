@@ -2,9 +2,9 @@
   "unused": {
     "array-0.js": [
       "E$",
-      "something",
-      "$Error",
-      "$_delete",
+      "something   (IGNORED)",
+      "$Error   (IGNORED)",
+      "$_delete   (IGNORED)",
       "$_is",
       "$_indexOf",
       "$_forEach"
@@ -15,5 +15,6 @@
   },
   "totalFiles": 2,
   "foundFiles": 2,
-  "foundImports": 8
+  "foundImports": 5,
+  "ignoredImports": 3
 }

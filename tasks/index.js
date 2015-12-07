@@ -50,7 +50,8 @@ module.exports = function( grunt ) {
       return file;
     });
 
-    var result = aggregate( files );
+    var importsToIgnore = options.ignore ? ( options.ignore.constructor === Array ? options.ignore : [ options.ignore ] ) : [];
+    var result = aggregate( files, importsToIgnore );
     var msg;
 
     if (options.test) {
@@ -62,13 +63,14 @@ module.exports = function( grunt ) {
 
       print( result.unused );
 
-      msg = 'found ' + result.foundImports +
+      msg = 'found ' + (result.foundImports + result.ignoredImports) +
         ' unused imports in ' + result.foundFiles +
-        ' file' + (result.foundFiles > 1 ? 's' : '') + '.';
+        ' file' + (result.foundFiles > 1 ? 's' : '') +
+        (result.ignoredImports > 0 ? (' (' + result.ignoredImports + ' IGNORED)') : '') + '.';
 
       // grunt.option( 'force' , true ) will force all subsequent tasks.
       // this handles the force option politely.
-      if (options.force) {
+      if (options.force || result.foundImports === 0) {
         console.log(( 'Warning: ' + msg ).yellow );
       }
       else {
@@ -78,6 +80,6 @@ module.exports = function( grunt ) {
     else {
       console.log( '\u2713 OK'.green );
     }
-    
+
   });
 };

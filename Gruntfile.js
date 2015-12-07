@@ -11,7 +11,7 @@ module.exports = function( grunt ) {
   'use strict';
 
   grunt.initConfig({
-    
+
     jshint: {
       all: [
         'Gruntfile.js',
@@ -31,16 +31,19 @@ module.exports = function( grunt ) {
       array: [ 'test/array/*-0.js' , 'test/array/*-1.js' ],
       wildcard: 'test/wildcard/*.js',
       default_as: 'test/default_as/*.js',
-      options: { test: true }
+      options: {
+        ignore: [ "something", "$Error", "$_delete" ],
+        test: true
+      }
     },
 
     nodeunit: {
       tests: [ 'test/*(_?)test.js' ]
     }
   });
-  
+
   grunt.loadTasks( 'tasks' );
-  
+
   [
     'grunt-contrib-jshint',
     'grunt-contrib-clean',

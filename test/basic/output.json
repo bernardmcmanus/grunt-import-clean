@@ -2,9 +2,9 @@
   "unused": {
     "basic.js": [
       "E$",
-      "something",
-      "$Error",
-      "$_delete",
+      "something   (IGNORED)",
+      "$Error   (IGNORED)",
+      "$_delete   (IGNORED)",
       "$_is",
       "$_indexOf",
       "$_forEach"
@@ -12,5 +12,6 @@
   },
   "totalFiles": 1,
   "foundFiles": 1,
-  "foundImports": 7
+  "foundImports": 4,
+  "ignoredImports": 3
 }
